@@ -1,0 +1,9 @@
+---
+-  name: uninstall apache    
+   hosts: myWebServer
+   become: true
+ 
+   tasks:
+    - name: uninstall apache
+      yum: pkg=httpd state=removed
+

@@ -1,0 +1,17 @@
+---
+-  name: install apache and start    
+   hosts: myWebServer
+   vars:
+      http_port: 80
+   become: true
+ 
+   tasks:
+    - name: install apache
+      yum: pkg=httpd state=latest
+    - name: start apache
+      service: name=httpd state=started
+    - name: copy html file to webserver
+      copy:
+          src: /home/anvitha/Documents/HelloAll.html
+          dest: /var/www/html
+
